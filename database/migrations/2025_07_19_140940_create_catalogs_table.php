@@ -19,7 +19,7 @@ return new class extends Migration
             $table->boolean('is_active')->default(true);
             $table->boolean('has_active_subscription')->default(false);
             $table->foreign('company_id')
-                  ->references('company_id')
+                  ->references('id')
                   ->on('companies')
                   ->onDelete('cascade');
             $table->timestamps();

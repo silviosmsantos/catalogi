@@ -30,4 +30,9 @@ class Company extends Model
     {
         return $this->hasMany(Catalog::class,'company_id', 'id');
     }
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }
