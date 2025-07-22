@@ -14,6 +14,10 @@
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
+                    <flux:navlist.group expandeble heading="Catalogos" class="hidden lg:grid">
+                        <flux:navlist.item icon="rectangle-group" :href="route('catalogs.index')" :current="request()->routeIs('catalogs.index')" wire:navigate>{{ __('My Catalogs') }}</flux:navlist.item>
+                        <flux:navlist.item icon="plus" :href="route('catalogs.create')" :current="request()->routeIs('catalogs.create')" wire:navigate>{{ __('Create Catalog') }}</flux:navlist.item>
+                    </flux:navlist.group>
                 </flux:navlist.group>
             </flux:navlist>
 

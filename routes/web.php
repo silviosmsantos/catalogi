@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Catalog\CatalogController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -15,10 +16,14 @@ Route::view('dashboard', 'dashboard')
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
-
     Route::get('settings/profile', Profile::class)->name('settings.profile');
     Route::get('settings/password', Password::class)->name('settings.password');
     Route::get('settings/appearance', Appearance::class)->name('settings.appearance');
 });
 
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/catalogs', [CatalogController::class, 'index'])->name('catalogs.index');
+    Route::get('/catalog/create', [CatalogController::class, 'create'])->name('catalogs.create');
+    Route::post('/catalog/store', [CatalogController::class, 'store'])->name('catalogs.store');
+});
 require __DIR__.'/auth.php';

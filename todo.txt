@@ -1,0 +1,22 @@
+Quem quiser containizar:
+
+https://hub.docker.com/_/php
+
+1) Lançar uma instância EC2;
+    - sudp apt update;
+    - sudo apt upgrade;
+    - sudo apt install docker.io;
+
+2) Instalar o Docker na instância;
+3) Preparar o contêiner (Dockerfile);
+    - Criar um banco de dados RDS e apontar a config para o conteuder da Conta de Admin;
+4) Buildar e gerar a imagem do Docker (teste!);
+5) Configurar a AWS para enviar imagens usando as credenciais do AWS Learner Lab;
+    - Instalação da aws CLI: https://docs.aws.amazon.com/pt_br/cli/latest/userguide/getting-started-install.html;
+6) Criar um repositório privado no ECR;
+7) Enviar a imagem do contêiner para o serviço ECR;
+8) Criar um cluster ECS e configurar uma task definition que receba a imagem do contêiner;
+9) Disponibilizar na Internet:
+    - Ou muda o DNS para fazer o mapeamento do IPv4 ao DNS ou colocar um balanceador de carga na frente do seu cluster;
+
+    Dockerfile laravel 12: https://dev.to/ranierivalenca/criando-e-executando-um-projeto-laravel-12-com-quase-zero-dependencias-usando-docker-hgd
